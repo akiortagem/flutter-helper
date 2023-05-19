@@ -1,7 +1,5 @@
-import 'dart:io';
-
 import 'package:dart_style/dart_style.dart';
-import 'package:mustache_template/mustache_template.dart';
+import 'package:flutter_helper/templates.dart';
 
 extension StringExtension on String {
   String get capitalize => '${this[0].toUpperCase()}${substring(1)}';
@@ -14,16 +12,9 @@ String _snakeToCamel(String input) {
   return camelCase;
 }
 
-Template _readTemplate(String filepath) {
-  final templateFile = File(filepath);
-  final templateString = templateFile.readAsStringSync();
-  final template = Template(templateString, name: 'dart_model');
-  return template;
-}
-
 String generateDartModelFromMap(Map<String, dynamic> mapData,
     {String className = 'GeneratedModel'}) {
-  final template = _readTemplate('lib/templates/dart_model.mustache');
+  final template = ModelTemplates.getDartModelTemplate();
 
   Map<String, dynamic> templateData = {};
 

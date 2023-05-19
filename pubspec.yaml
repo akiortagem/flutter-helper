@@ -12,6 +12,7 @@ dependencies:
   args: any
   dart_style: any
   mustache_template: any
+  package_config: any
 
 dev_dependencies:
   lints: ^2.0.0
