@@ -22,7 +22,8 @@ String generateDartModelFromMap(Map<String, dynamic> mapData,
   final fields = <Map<String, dynamic>>[];
   mapData.forEach((key, value) {
     final field = <String, dynamic>{};
-    field['name'] = _snakeToCamel(key);
+    field['dartName'] = _snakeToCamel(key);
+    field['name'] = key;
     if (value is String) {
       field['type'] = 'String';
     } else if (value is int) {
@@ -35,7 +36,7 @@ String generateDartModelFromMap(Map<String, dynamic> mapData,
       //get type of list
       final listType = value.first.runtimeType;
       //then get the string representation of the type
-      field['type'] = 'List<${listType.toString()}>';
+      field['type'] = 'List\<${listType.toString()}\>';
     } else if (value is Map) {
       field['type'] = 'Map';
     } else {
@@ -47,7 +48,7 @@ String generateDartModelFromMap(Map<String, dynamic> mapData,
   // list constructors from fields
   List<String> constructors = [];
   for (Map<String, dynamic> field in fields) {
-    constructors.add('required this.${field['name']}');
+    constructors.add('required this.${field['dartName']}');
   }
 
   //collapse constructors to a comma and newline separated string
