@@ -1,0 +1,7 @@
+{
+    "name":"Alvin Megatroika",
+    "age": 20,
+    "address": "Jl. Raya Ciputat Parung No. 27",
+    "hobbies": ["Membaca", "Menulis", "Menggambar"],
+    "is_married": true
+}
