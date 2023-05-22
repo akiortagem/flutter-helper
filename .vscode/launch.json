@@ -5,14 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter-helper",
+            "name": "flutter-helper model generation",
             "request": "launch",
             "type": "dart",
-            "program":"bin/flutter_helper.dart",
+            "program":"bin/model_generator.dart",
             "args": [
                 "-j", "test/test_files/test_json.json",
                 "-o", "test/test_files/test_output.dart",
                 "-c", "Person"
+            ],
+            //set working directory to the root of the project
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "flutter-helper service generation",
+            "request": "launch",
+            "type": "dart",
+            "program":"bin/make_service.dart",
+            "args": [
+                "-o", "test/test_files/test_output.dart",
+                "-c", "PersonService"
             ],
             //set working directory to the root of the project
             "cwd": "${workspaceFolder}"
