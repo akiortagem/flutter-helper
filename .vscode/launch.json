@@ -8,9 +8,9 @@
             "name": "flutter-helper model generation",
             "request": "launch",
             "type": "dart",
-            "program":"bin/model_generator.dart",
+            "program":"bin/make_model.dart",
             "args": [
-                "-j", "test/test_files/test_json.json",
+                "-j", "test/test_files/test_product.json",
                 "-o", "test/test_files/test_output.dart",
                 "-c", "Person"
             ],

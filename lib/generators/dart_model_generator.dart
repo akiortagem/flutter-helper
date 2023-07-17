@@ -41,10 +41,15 @@ class DartModelGenerator extends Configurable {
       } else if (value is bool) {
         field['type'] = 'bool';
       } else if (value is List) {
-        //get type of list
-        final listType = value.first.runtimeType;
-        //then get the string representation of the type
-        field['type'] = 'List\<${listType.toString()}\>';
+        List<dynamic> valueList = value;
+        if (valueList.isEmpty) {
+          field['type'] = 'List<dynamic>';
+        } else {
+          //get type of list
+          final listType = value.first.runtimeType;
+          //then get the string representation of the type
+          field['type'] = 'List\<${listType.toString()}\>';
+        }
       } else if (value is Map) {
         field['type'] = 'Map';
       } else {
