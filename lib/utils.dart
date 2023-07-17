@@ -20,3 +20,14 @@ Map<String, dynamic> jsonPathToMap(String jsonFilePath) {
   // Parse the JSON string into a Map<String, dynamic>
   return Map<String, dynamic>.from(json.decode(jsonString));
 }
+
+String cleanKeyword(String input) {
+  if (input == 'class') {
+    return 'className';
+  }
+
+  if (input == 'default') {
+    return 'defaultValue';
+  }
+  return input;
+}

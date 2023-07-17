@@ -30,7 +30,7 @@ class DartModelGenerator extends Configurable {
     final fields = <Map<String, dynamic>>[];
     mapData.forEach((key, value) {
       final field = <String, dynamic>{};
-      field['dartName'] = snakeToCamel(key);
+      field['dartName'] = cleanKeyword(snakeToCamel(key));
       field['name'] = key;
       if (value is String) {
         field['type'] = 'String';
